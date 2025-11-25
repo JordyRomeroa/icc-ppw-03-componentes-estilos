@@ -17,20 +17,6 @@ export class SimpsonsPageComponent {
     { initialValue: null }
   );
 
-  /// VERISION REACTIVA
-  instResource = rxResource({
-  // 1. La petición depende de los valores de las señales
-  request: () => ({
-    page: this.paginationService.currentPage() - 1,
-    limit: this.bannersPerPage(),
-  }),
 
-  // 2. El loader ejecuta el servicio de la API según esos valores
-  loader: ({ request }) => {
-    return this.instService.getInstitucionesUsers({
-      offset: request.page * request.limit,
-      limit: request.limit,
-    });
-  },
-});
-}
+};
+
