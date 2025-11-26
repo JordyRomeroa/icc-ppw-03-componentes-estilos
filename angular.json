@@ -40,8 +40,9 @@
                 }
               ],
               "outputHashing": "all",
-              "baseHref": "/03-ui-components-estilos/",
-              "deployUrl": "/03-ui-components-estilos/"
+
+              "baseHref": "/icc-ppw-03-componentes-estilos/",
+              "deployUrl": "/icc-ppw-03-componentes-estilos/"
             },
             "development": {
               "optimization": false,
