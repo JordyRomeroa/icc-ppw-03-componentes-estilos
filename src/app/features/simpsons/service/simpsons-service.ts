@@ -7,6 +7,7 @@ import { SimpsonsCharacterDetail } from '../interface/SimpsonsCharacterDetail';
 
 
 
+
 @Injectable({ providedIn: 'root' })
 export class SimpsonsService {
   private http = inject(HttpClient);

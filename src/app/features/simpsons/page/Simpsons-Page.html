@@ -1,0 +1,78 @@
+<app-breadcrumbs
+  [items]="[
+    { label: 'Inicio', link: '/' },
+    { label: 'Simpsons', link: '/simpsons' },
+    { label: 'Personajes' }
+  ]"
+/>
+
+<section class="p-6">
+  <app-hero-simpsons
+    [simpsonsCount]="simpsonsResource()?.count ?? 0"
+    [totalPages]="totalPages()"
+  ></app-hero-simpsons>
+
+
+<section class="p-8">
+  <h1 class="text-3xl font-bold mb-2 text-center">The Simpsons API</h1>
+  <h2 class="text-lg text-center mb-6">Listado de personajes</h2>
+
+  <!-- Spinner de carga -->
+  @if (!simpsonsResource()) {
+  <div class="flex justify-center items-center h-64">
+    <span class="loading loading-spinner loading-lg"></span>
+  </div>
+  }
+  <!-- Paginación -->
+      @if (simpsonsResource() !== null) {
+        <div class="flex gap-2 items-center h-20 mb-4">
+
+          <app-pagination
+            [pages]="simpsonsResource()?.pages ?? 0"
+            [currentPage]="paginationService.currentPage()"
+          />
+
+          <div class="flex flex-1"></div>
+        </div>
+      }
+
+
+  <!-- Tabla de personajes -->
+  @if (simpsonsResource()) {
+  <div class="overflow-x-auto">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Ocupación</th>
+          <th>Estado</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (personaje of simpsonsResource()?.results ?? []; track personaje.id) {
+        <tr>
+          <td>{{ personaje.id }}</td>
+          <td>{{ personaje.name }}</td>
+          <td>{{ personaje.occupation }}</td>
+          <td>
+            <span class="badge badge-{{ personaje.status === 'Alive' ? 'success' : 'error' }}">
+              {{ personaje.status }}
+            </span>
+          </td>
+          <td>
+            <a [routerLink]="['/simpsons', personaje.id]" class="btn btn-sm btn-primary">
+              Ver Detalle
+            </a>
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+
+
+    </div>
+  }
+
+</section>

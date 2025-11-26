@@ -1,14 +1,16 @@
 import { Routes } from '@angular/router';
 import { EstilosPage } from './features/estilos-page/estilos-page';
 import { SignalBox } from './features/signal-box/signal-box';
+import { DaisyuiPage } from './features/daisyui-page/daisyui-page';
 import { Drawer } from './features/daisyui-page/components/drawer/drawer';
-import { DaisyuiPageComponent } from './features/daisyui-page/daisyui-page';
-import { ProgressBar } from './features/progress-bar/progress-bar';
+
+import { SimpsonDetailPageComponent } from './features/simpson-detail-page/simpson-detail-page';
+import { SimpsonsPageComponent } from './features/simpsons/page/Simpsons-Page';
 
 export const routes: Routes = [
   {
     path: '',
-    component: DaisyuiPageComponent
+    component: DaisyuiPage
   },
   {
     path: '',
@@ -21,6 +23,16 @@ export const routes: Routes = [
   {
     path:'',
     component: SignalBox
-  }
+  },
+  {
+  path: 'simpsons',
+  component: SimpsonsPageComponent,
+},
+{
+  path: 'simpsons/:id',
+  component: SimpsonDetailPageComponent,
+},
+
+
 
 ];

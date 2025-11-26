@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "03-ui-componentes-estilos": {
+    "03-ui-components-estilos": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -14,6 +14,9 @@
           "builder": "@angular/build:application",
           "options": {
             "browser": "src/main.ts",
+            "polyfills": [
+              
+            ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
               {
@@ -39,7 +42,11 @@
                   "maximumError": "8kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+
+             
+              "baseHref": "/03-ui-components-estilos/",
+              "deployUrl": "/03-ui-components-estilos/"
             },
             "development": {
               "optimization": false,
@@ -59,10 +66,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "03-ui-componentes-estilos:build:production"
+              "buildTarget": "03-ui-components-estilos:build:production"
             },
             "development": {
-              "buildTarget": "03-ui-componentes-estilos:build:development"
+              "buildTarget": "03-ui-components-estilos:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -73,6 +80,10 @@
         "test": {
           "builder": "@angular/build:karma",
           "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
               {

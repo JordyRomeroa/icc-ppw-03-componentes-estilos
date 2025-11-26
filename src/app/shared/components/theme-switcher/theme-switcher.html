@@ -1,0 +1,21 @@
+<!-- Botón desplegable DaisyUI -->
+<div class="dropdown dropdown-end">
+  <button tabindex="0" class="btn btn-ghost flex items-center">
+    Tema: <span class="ml-1 capitalize">{{ currentTheme() }}</span>
+  </button>
+
+  <!-- Dropdown con botones usando @for -->
+  <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box w-40 shadow">
+    @for (theme of themes; track theme) {
+      <li>
+        <button 
+          (click)="setTheme(theme)" 
+          [class.active]="currentTheme() === theme"
+          class="w-full text-left px-4 py-2 hover:bg-gray-200 rounded"
+        >
+          {{ theme | titlecase }}
+        </button>
+      </li>
+    }
+  </ul>
+</div>

@@ -1,5 +1,4 @@
-// environment.prod.ts
 export const environment = {
-  production: true,
-  apiUrl: 'https://api.productionserver.com'
+  production: false,
+  apiUrl: 'https://thesimpsonsapi.com/api'
 };

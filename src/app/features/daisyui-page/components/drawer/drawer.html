@@ -1,34 +1,86 @@
 <div class="drawer">
   <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
   <div class="drawer-content flex flex-col">
+
+    <!-- NAVBAR -->
     <div class="navbar bg-base-300 w-full">
+
+      <!-- BOTÓN PARA ABRIR EL SIDEBAR EN MÓVIL -->
       <div class="flex-none lg:hidden">
         <label for="my-drawer-2" aria-label="open sidebar" class="btn btn-square btn-ghost">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                class="inline-block h-6 w-6 stroke-current">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
+            </svg>
         </label>
       </div>
+
+      <!-- TÍTULO -->
       <div class="mx-2 flex-1 px-2 font-bold">Navbar Title</div>
+
+      <!-- MENÚ DESKTOP -->
       <div class="hidden flex-none lg:block">
-        <ul class="menu menu-horizontal">
-          <li><a routerLink="/estilos">Estilos</a></li>
-          <li><a>Componentes</a></li>
-          <li><a>Contacto</a></li>
-        </ul>
-      </div>
+  <ul class="menu menu-horizontal">
+    <li><a routerLink="/estilos" routerLinkActive="bg-primary text-primary-content">Estilos</a></li>
+    <li><a routerLink="/simpsons" routerLinkActive="bg-primary text-primary-content">Simpsons</a></li>
+    <li><a routerLink="/" routerLinkActive="bg-primary text-primary-content" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
+  </ul>
+  <!-- Botón de cambio de tema -->
+  <app-theme-switcher></app-theme-switcher>
+</div>
     </div>
-    <main class="p-6">Contenido principal aquí</main>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="p-6">
+      Contenido principal aquí
+    </main>
+
   </div>
 
+  <!-- SIDEBAR -->
   <div class="drawer-side">
     <label for="my-drawer-2" aria-label="close sidebar" class="drawer-overlay"></label>
+
     <ul class="menu bg-base-200 min-h-full w-80 p-4">
-      <li><a>Dashboard</a></li>
-      <li><a>Configuración</a></li>
-      <li><a>Ayuda</a></li>
+
+      <li>
+        <a
+          routerLink="/dashboard"
+          routerLinkActive="bg-primary text-primary-content"
+        >
+          Dashboard
+        </a>
+      </li>
+
+      <li>
+        <a
+          routerLink="/configuracion"
+          routerLinkActive="bg-primary text-primary-content"
+        >
+          Configuración
+        </a>
+      </li>
+
+      <li>
+        <a
+          routerLink="/ayuda"
+          routerLinkActive="bg-primary text-primary-content"
+        >
+          Ayuda
+        </a>
+      </li>
+
+      <!-- NAV SIMPSONS TAMBIÉN EN SIDEBAR -->
+      <li>
+        <a
+          routerLink="/simpsons"
+          routerLinkActive="bg-primary text-primary-content"
+        >
+          Simpsons
+        </a>
+      </li>
+
     </ul>
   </div>
 </div>
